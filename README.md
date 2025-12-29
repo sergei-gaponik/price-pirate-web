@@ -15,25 +15,40 @@ A simple static website for PricePirate, hosted on GitHub Pages.
 
 This repository includes a GitHub Actions workflow that automatically deploys to GitHub Pages.
 
-**Important Setup Steps:**
+**⚠️ CRITICAL: You MUST enable Pages manually FIRST before the workflow can run!**
 
-1. **First, enable Pages manually** (required for first-time setup):
-   - Push this repository to GitHub
-   - Go to **Settings > Pages** in your GitHub repository
-   - Under **Source**, select **GitHub Actions**
-   - This creates the `github-pages` environment
+**Step-by-Step Setup:**
 
-2. **Configure Workflow Permissions**:
-   - Go to **Settings > Actions > General**
-   - Scroll to "Workflow permissions"
+1. **Push repository to GitHub** (if not already done):
+   ```bash
+   git add .
+   git commit -m "Initial commit"
+   git push origin main
+   ```
+
+2. **Enable GitHub Pages** (REQUIRED FIRST STEP):
+   - Go to your repository on GitHub
+   - Click **Settings** (top menu)
+   - Click **Pages** (left sidebar)
+   - Under **"Source"**, select **"GitHub Actions"** (NOT "Deploy from a branch")
+   - This creates the `github-pages` environment automatically
+   - **Do NOT skip this step** - the workflow will fail without it!
+
+3. **Configure Workflow Permissions**:
+   - Still in **Settings**, click **Actions** → **General** (left sidebar)
+   - Scroll down to **"Workflow permissions"**
    - Select **"Read and write permissions"**
-   - Check **"Allow GitHub Actions to create and approve pull requests"**
-   - Click **Save**
+   - ✅ Check **"Allow GitHub Actions to create and approve pull requests"**
+   - Click **Save** button
 
-3. **Deploy**:
-   - Push the workflow file (or make a new commit)
-   - The workflow will automatically deploy when you push to the `main` or `master` branch
-   - Your site will be available at `https://yourusername.github.io/price-pirate-web/`
+4. **Trigger the workflow**:
+   - Make any small change (or the workflow will run automatically on next push)
+   - Go to **Actions** tab to see the workflow run
+   - Wait for it to complete - your site will be live!
+
+5. **Your site URL**:
+   - `https://yourusername.github.io/price-pirate-web/`
+   - The workflow will show the URL in the deployment step
 
 ### Option 2: Direct GitHub Pages (Simple)
 
