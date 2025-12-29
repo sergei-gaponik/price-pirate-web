@@ -15,11 +15,25 @@ A simple static website for PricePirate, hosted on GitHub Pages.
 
 This repository includes a GitHub Actions workflow that automatically deploys to GitHub Pages.
 
-1. Push this repository to GitHub
-2. Go to **Settings > Pages** in your GitHub repository
-3. Under **Source**, select **GitHub Actions**
-4. The workflow will automatically deploy when you push to the `main` or `master` branch
-5. Your site will be available at `https://yourusername.github.io/price-pirate-web/`
+**Important Setup Steps:**
+
+1. **First, enable Pages manually** (required for first-time setup):
+   - Push this repository to GitHub
+   - Go to **Settings > Pages** in your GitHub repository
+   - Under **Source**, select **GitHub Actions**
+   - This creates the `github-pages` environment
+
+2. **Configure Workflow Permissions**:
+   - Go to **Settings > Actions > General**
+   - Scroll to "Workflow permissions"
+   - Select **"Read and write permissions"**
+   - Check **"Allow GitHub Actions to create and approve pull requests"**
+   - Click **Save**
+
+3. **Deploy**:
+   - Push the workflow file (or make a new commit)
+   - The workflow will automatically deploy when you push to the `main` or `master` branch
+   - Your site will be available at `https://yourusername.github.io/price-pirate-web/`
 
 ### Option 2: Direct GitHub Pages (Simple)
 
