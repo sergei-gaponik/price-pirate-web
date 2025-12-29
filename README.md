@@ -29,8 +29,33 @@ This repository includes a GitHub Actions workflow that automatically deploys to
 4. Select the branch (usually `main` or `master`) and folder (`/root`)
 5. Your site will be available at `https://yourusername.github.io/price-pirate-web/`
 
+### Troubleshooting Deployment Failures
+
+If the GitHub Actions deployment fails, check the following:
+
+1. **Repository Settings**: 
+   - Go to **Settings > Pages**
+   - Make sure **Source** is set to **GitHub Actions** (not "Deploy from a branch")
+   - The `github-pages` environment should be created automatically
+
+2. **Repository Permissions**:
+   - Go to **Settings > Actions > General**
+   - Under "Workflow permissions", ensure "Read and write permissions" is selected
+   - Check "Allow GitHub Actions to create and approve pull requests"
+
+3. **Check Workflow Logs**:
+   - Go to the **Actions** tab in your repository
+   - Click on the failed workflow run
+   - Review the error messages in the logs
+
+4. **Common Issues**:
+   - If you see "Environment protection rules", you may need to approve the deployment in the Environments section
+   - Make sure you're pushing to the `main` or `master` branch
+   - Ensure the workflow file is in `.github/workflows/deploy.yml`
+
 ### Notes
 
 - Make sure the repository name matches the URL path. If your repository is named `price-pirate-web`, the privacy page will be at `/price-pirate-web/privacy.html`
 - The GitHub Actions workflow (`.github/workflows/deploy.yml`) will automatically run on every push to `main` or `master`
 - You can also manually trigger the deployment using the "Run workflow" button in the Actions tab
+- The `.nojekyll` file ensures GitHub Pages doesn't try to process the site with Jekyll
